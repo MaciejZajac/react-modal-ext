@@ -14,13 +14,26 @@ npm install --save react-modal-ext
 
 ```tsx
 import React, { Component } from 'react'
-
-import MyComponent from 'react-modal-ext'
-import 'react-modal-ext/dist/index.css'
+import ModalContainer, { store, ModalEnum } from 'react-modal-ext'
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return (
+      <div>
+        <button
+          onClick={() =>
+            store.showModal(
+              ModalEnum.SMALL,
+              <div>I'm a small modal! Style me!</div>
+            )
+          }
+        >
+          Show small modal
+        </button>
+
+        <ModalContainer />
+      </div>
+    )
   }
 }
 ```
